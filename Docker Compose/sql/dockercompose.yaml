@@ -1,0 +1,25 @@
+version: '3.3'
+services:
+  db:
+    image: mysql:5.7
+    restart: always
+    environment:
+      MYSQL_DATABASE: 'db'
+      # seu nome de Usuario 
+      MYSQL_USER: 'user'
+      # Aqui você define a sua senha 
+      MYSQL_PASSWORD: 'password'
+      # Aqui você define a senha de root
+      MYSQL_ROOT_PASSWORD: 'password'
+    ports:
+      # Porta que o banco vai utilizar para realizar conexões  
+      - '3306:3306'
+    expose:
+      # Abrir a porta do banco 
+      - '3306'
+      # Where our data will be persisted
+    volumes:
+      - my-db:/var/lib/mysql
+# Names our volume
+volumes:
+  my-db:
